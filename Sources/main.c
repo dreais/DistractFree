@@ -1,5 +1,7 @@
 #include <stdio.h>
-#include "raylib.h"
+#include "distractfree.h"
+
+void mainLoop(int monitorCount, int mainMonitor, char *monitorStr, int flags);
 
 int main(void)
 {
@@ -15,29 +17,8 @@ int main(void)
     mainMonitor = GetCurrentMonitor();
     monitorCount = GetMonitorCount();
     CloseWindow();
-    for (int i = 0; i < monitorCount; i++) {
-        if (i != mainMonitor) {
-            InitWindow(0, 0, "Relax!");
-            SetWindowMonitor(i);
-            Vector2 pos = {.x = ((float) GetScreenWidth() - (float) MeasureText(monitorStr, 80)) / 2,
-                    .y = ((float) GetScreenHeight() - 80) / 2};
-            BeginDrawing();
-            ClearBackground(bg);
-            sprintf(monitorStr, "Relax!", GetCurrentMonitor());
-            DrawText(monitorStr, (int) pos.x, (int) pos.y, 80, (Color ){0, 0, 0, 200});
-            DrawText(monitorStr, (int) pos.x - 3, (int) pos.y - 3, 80, WHITE);
-            EndDrawing();
-        }
-    }
-    SetConfigFlags(flags & FLAG_WINDOW_UNDECORATED & FLAG_WINDOW_UNFOCUSED);
-    InitWindow(600, 600, "Quit");
-    while (!WindowShouldClose()) {
-        BeginDrawing();
-        ClearBackground((Color) {34, 34, 34, 255});
-        DrawText("Press ESC to", 0, 0, 80, WHITE);
-        DrawText("quit", 0, 80, 80, WHITE);
-        EndDrawing();
-    }
-    CloseWindow();
+
+    mainLoop(monitorCount, mainMonitor, monitorStr, flags);
+
     return 0;
 }
