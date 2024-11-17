@@ -18,7 +18,7 @@ void mainLoop(int monitorCount, int mainMonitor, char *monitorStr, int flags)
                     .y = ((float) GetScreenHeight() - 80) / 2};
             BeginDrawing();
             ClearBackground(bg);
-            sprintf(monitorStr, "Relax!", GetCurrentMonitor());
+            sprintf(monitorStr, "Relax!");
             DrawText(monitorStr, (int) pos.x, (int) pos.y, 80, (Color ){0, 0, 0, 200});
             DrawText(monitorStr, (int) pos.x - 3, (int) pos.y - 3, 80, WHITE);
             EndDrawing();
