@@ -13,6 +13,7 @@ void mainLoop(int monitorCount, int mainMonitor, char *monitorStr, int flags)
         if (i != mainMonitor) {
             InitWindow(0, 0, "Relax!");
             SetWindowMonitor(i);
+            SetWindowSize(GetMonitorWidth(i), GetMonitorHeight(i));
             Vector2 pos = {.x = ((float) GetScreenWidth() - (float) MeasureText(monitorStr, 80)) / 2,
                     .y = ((float) GetScreenHeight() - 80) / 2};
             BeginDrawing();

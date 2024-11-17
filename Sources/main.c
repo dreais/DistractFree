@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include "distractfree.h"
 
-void mainLoop(int monitorCount, int mainMonitor, char *monitorStr, int flags);
-
 int main(void)
 {
     int mainMonitor;

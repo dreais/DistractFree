@@ -9,7 +9,7 @@ include_directories(${CMAKE_SOURCE_DIR}/Headers)
 add_link_options(-Wl,--subsystem,windows)
 #endif()
 
-add_executable(DistractFree Sources/main.c Headers/raylib.h)
+add_executable(DistractFree Sources/main.c Sources/loop.c Headers/raylib.h Headers/distractfree.h)
 
 find_package(raylib 3.0 QUIET) # Let CMake search for a raylib-config.cmake
 
