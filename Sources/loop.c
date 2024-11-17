@@ -24,7 +24,7 @@ void mainLoop(int monitorCount, int mainMonitor, char *monitorStr, int flags)
             EndDrawing();
         }
     }
-    SetConfigFlags(flags & FLAG_WINDOW_UNDECORATED & FLAG_WINDOW_UNFOCUSED);
+    SetConfigFlags(0);
     InitWindow(740, 80, "Quit");
     while (!WindowShouldClose()) {
         BeginDrawing();
